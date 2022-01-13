@@ -4,13 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class UITitle : MonoBehaviour
+public class UITitle : UIBase
 {
-    public void StartMain()
-    {
-        SceneManager.LoadScene(1);
-    }
-
     public void InputPlayerName(TextMeshProUGUI text)
     {
         MainManager.Instance.PlayerName = text.text;

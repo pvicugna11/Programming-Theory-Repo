@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Sphere : Shape
 {
-    public override void DisplayText()
+    public override string GetColor()
     {
-        base.DisplayText();
+        return $"Green";
     }
 }

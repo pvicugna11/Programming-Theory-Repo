@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Capsule : Shape
 {
-    public override void DisplayText()
+    public override string GetColor()
     {
-        base.DisplayText();
+        return $"Blue";
     }
 }

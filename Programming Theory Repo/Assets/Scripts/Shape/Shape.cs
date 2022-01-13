@@ -2,23 +2,35 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shape : MonoBehaviour
+public class Shape : MonoBehaviour,
+    UIMain.IUIInfoContent
 {
     public string ShapeName { get; protected set; }
-    public Color ShapeColor;
-
-    private Renderer m_Renderer;
-
+    public Color ShapeColor { get; protected set; }
+    
     private void Start()
     {
-        m_Renderer = GetComponent<Renderer>();
-        SetColor(ShapeColor);
+        Init();
     }
 
-    public void SetColor(Color color)
+    private void Init()
     {
-        m_Renderer.material.color = color;
+        ShapeName = gameObject.name;
+        ShapeColor = GetComponent<Renderer>().material.color;
     }
 
-    public virtual void DisplayText() {}
+    public void DisplayText()
+    {
+        UIMain.Instance.DisplayText(this);
+    }
+
+    public virtual string GetName()
+    {
+        return ShapeName;
+    }
+
+    public virtual string GetColor()
+    {
+        return "";
+    }
 }
