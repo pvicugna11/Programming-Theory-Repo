@@ -36,8 +36,13 @@ public class UIMain : UIBase
         {
             InfoPopup.gameObject.SetActive(true);
             InfoPopup.transform.position = shape.gameObject.transform.position + bias;
-            InfoPopup.Name.SetText(shape.GetName());
-            InfoPopup.Color.SetText(shape.GetColor());
+            Fetch(shape);
         }
+    }
+
+    private void Fetch(IUIInfoContent content)
+    {
+        InfoPopup.Name.SetText(content.GetName());
+        InfoPopup.Color.SetText(content.GetColor());
     }
 }   
